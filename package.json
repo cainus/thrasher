@@ -1,0 +1,12 @@
+{
+    "name": "thrasher",
+    "description" : "A way to connect two HTTP APIs so that one can subscribe to changes in the other.",
+    "keywords" : ["api", "daemon", "process", "webhook", "http"],
+    "version": "0.0.1",
+    "bugs": {
+     "url": "https://github.com/cainus/thrasher/issues"
+    },
+    "dependencies": {
+        "forever-monitor" : "1.1.0"
+    }
+}
