@@ -7,6 +7,8 @@
      "url": "https://github.com/cainus/thrasher/issues"
     },
     "dependencies": {
-        "forever-monitor" : "1.1.0"
+        "forever-monitor" : "1.1.0",
+        "cron" : "1.0.1",
+        "request" : "2.12.0"
     }
 }
