@@ -1,7 +1,7 @@
 {
     "name": "thrasher",
-    "description" : "A way to connect two HTTP APIs so that one can subscribe to changes in the other.",
-    "keywords" : ["api", "daemon", "process", "webhook", "http"],
+    "description" : "A simple single-process non-persistent work-queue that can get its own jobs",
+    "keywords" : ["work", "job", "queue"],
     "version": "0.0.1",
     "bugs": {
      "url": "https://github.com/cainus/thrasher/issues"
@@ -9,8 +9,6 @@
     "dependencies": {
         "forever-monitor" : "1.1.0",
         "cron" : "1.0.1",
-        "request" : "2.12.0",
-        "jsdom" : "0.3.4",
         "underscore" : "1.4.4"
     }
 }

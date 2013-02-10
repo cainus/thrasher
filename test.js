@@ -1,7 +1,7 @@
 var framework = require('./index');
 var Thrasher  = framework.Thrasher;
-var jsdom     = framework.jsdom;
-var request   = framework.request;
+var jsdom     = require('jsdom');
+var request   = require('request');
 var fs   = require('fs');
 
 var redditThrasher = new Thrasher({

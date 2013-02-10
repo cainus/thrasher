@@ -1,7 +1,7 @@
 Thrasher
 =============
 
-A way to connect two HTTP APIs so that one can subscribe to changes in the other.
+An in-process non-persistent job queue that fetches its own work.
 
 Early stage development, and totally unusable.
 
