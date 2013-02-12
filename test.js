@@ -1,45 +1,29 @@
-var framework = require('./index');
-var Thrasher  = framework.Thrasher;
-var jsdom     = require('jsdom');
-var request   = require('request');
-var fs   = require('fs');
+var BatchThrasher = require('./index').BatchThrasher;
 
-var redditThrasher = new Thrasher({
-  urlListStrategy : function(cb){
-    console.log("running strategy");
-    var urls;
-    var manifest = 'http://www.reddit.com/r/pics';
-    //example link <a class="title" href="http://i.imgur.com/Abu7kaD.jpg">
-    jsdom.env(
-      manifest,
-      ["http://code.jquery.com/jquery.js"],
-      function (errors, window) {
-        if (errors){
-          return cb(errors);
-        }
-        var links = window.$("a.title");
-        var newLinks = [];
-        links.each(function(idx, el){
-          newLinks.push(window.$(el).attr('href'));
-        });
-        return cb(null, newLinks);
-      }
-    );
+var thrasher = new BatchThrasher({
+  makeJobs : function(cb){
+    cb([1,2,3,4]);
   },
-  urlListSchedule : '* * * * * 1'
-});
-
-redditThrasher.on('urlSuccess', function(data){
-  console.log("got: ", data.url);
-  var fname = process.cwd() + '/pics/' + (data.url.split("/")).pop();
-  fs.writeFile(fname, data.response.body, function (err) {
-    if (err){ 
-      throw err;
+  onJob : function(job, done){
+    console.log("payload is: ", job.payload);
+    console.log(job.attemptTimes);
+    console.log(job.errors);
+    if (job.payload === 2){
+      console.log("gonna retry this one");
+      job.payload--;
+      job.retry("it was two.  two sucks.");
     }
-    console.log('saved ', data.url, ' as ', fname);
-  });
+    return done();
+  },
+  afterBatch : function(){
+    console.log("batch processed successfully!");
+  },
+  makeInterval : 4000,
+  retryInterval : 1000,
+  jobInterval : 1000,
+  asynchWorker : false
 });
-redditThrasher.on('urlError', function(data){
-  console.log("there was an error at ", data.url, ': ', JSON.stringify(data.error));
-});
-redditThrasher.start(true);
+thrasher.start();
+
+
+
