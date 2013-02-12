@@ -21,7 +21,8 @@ var thrasher = new BatchThrasher({
   makeInterval : 4000,
   retryInterval : 1000,
   jobInterval : 1000,
-  asynchWorker : false
+  asynchWorker : true,
+  asynchronousBatches : true
 });
 thrasher.start();
 
