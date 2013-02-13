@@ -1,5 +1,3 @@
-Thrasher
-=============
 # ![Thrasher](https://raw.github.com/cainus/thrasher/master/thrasher.png)
 [![Build
 Status](https://secure.travis-ci.org/cainus/thrasher.png?branch=master)](http://travis-ci.org/cainus/thrasher)
