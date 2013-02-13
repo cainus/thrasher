@@ -1,7 +1,12 @@
-exports.BatchThrasher = require('./lib/BatchThrasher');
-exports.BatchScheduler = require('./lib/BatchScheduler');
-exports.JobMaker = require('./lib/JobMaker');
-exports.JobQueue = require('./lib/JobQueue');
-exports.Queue = require('./lib/Queue');
-exports.Worker = require('./lib/Worker');
+var dir = './lib/';
+if (process.env.PERCOLATOR_COVERAGE){
+  dir = './lib-cov/';
+}
+
+exports.BatchThrasher = require(dir + 'BatchThrasher');
+exports.BatchScheduler = require(dir + 'BatchScheduler');
+exports.JobMaker = require(dir + 'JobMaker');
+exports.JobQueue = require(dir + 'JobQueue');
+exports.Queue = require(dir + 'Queue');
+exports.Worker = require(dir + 'Worker');
 
