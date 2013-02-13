@@ -2,7 +2,7 @@
     "name": "thrasher",
     "description" : "A simple single-process non-persistent work-queue that can get its own jobs",
     "keywords" : ["work", "job", "queue"],
-    "version": "0.0.4",
+    "version": "0.0.5",
     "bugs": {
      "url": "https://github.com/cainus/thrasher/issues"
     },
