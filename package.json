@@ -10,5 +10,10 @@
         "forever-monitor" : "1.1.0",
         "cron" : "1.0.1",
         "underscore" : "1.4.4"
-    }
+    },
+    "devDependencies" : {
+        "mocha" : "1.8.1",
+        "should" : "1.1.0"
+    },
+    "engine" : {"node" : ">=0.8.6"}
 }
