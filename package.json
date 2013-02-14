@@ -6,6 +6,9 @@
     "bugs": {
      "url": "https://github.com/cainus/thrasher/issues"
     },
+    "scripts" : {
+        "test" : "make test"
+    },
     "dependencies": {
         "forever-monitor" : "1.1.0",
         "cron" : "1.0.1",
