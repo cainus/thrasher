@@ -44,6 +44,12 @@ describe("Queue", function(){
     queue.dequeue(Infinity).should.eql([1,100,300]);
   });
 
+  it("should dequeue all items if dequeue is called with no args", function(){
+    var queue = new Queue();
+    queue.enqueue([1,2,3]);
+    queue.dequeue().length.should.equal(3);
+  });
+
   it("should give the length of enqueued items", function(){
     var queue = new Queue([1,2,3]);
     queue.getLength().should.equal(3);
