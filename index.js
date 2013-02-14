@@ -1,5 +1,6 @@
 var dir = './lib/';
-if (process.env.PERCOLATOR_COVERAGE){
+if (process.env.THRASHER_COVERAGE){
+  console.log("coverage mode");
   dir = './lib-cov/';
 }
 
