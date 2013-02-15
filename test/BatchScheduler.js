@@ -61,21 +61,34 @@ describe("BatchScheduler", function(){
     var makeInterval = 100;
     scheduler.start(makeInterval, 100);
   });
-  it ("will not try to 'make' again when a worker finishes unless the queue is empty", function(done){
+  it ("will not try to 'make' again when the workers finish a batch unless the queue is empty", function(done){
     var test = { };
-    var calls = 0;
+    var makeCalls = 0;
     var maker = new JobMaker(function(cb){
-      calls++;
-      if (calls > 1){
+      makeCalls++;
+      if (makeCalls > 1){
         should.fail("this should not get called again.");
       }
-      return cb([]);
+      return cb([1]);
     });
-    var asynch = false;
-    var scheduler = new BatchScheduler(maker, this.nullWorker, this.queue, asynch);
-    this.queue.add(1);
-    this.nullWorker.emit('done');
-    done();
+    var workCalls = 0;
+    var worker = new Worker(function(job, cb){
+      workCalls++;
+      if (workCalls === 1){
+        job.retry();
+      }
+      if (workCalls === 2){
+        scheduler.stop();
+        done();
+      }
+      if (workCalls > 2){
+        should.fail("work calls shouldn't get this high.");
+      }
+      cb();
+    }, true, 1);
+    var asynch = true;
+    var scheduler = new BatchScheduler(maker, worker, this.queue, asynch);
+    scheduler.start(3000, 50);
   });
   it ("can make jobs on a timer", function(done){
     var test = { };
