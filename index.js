@@ -10,4 +10,4 @@ exports.JobMaker = require(dir + 'JobMaker');
 exports.JobQueue = require(dir + 'JobQueue');
 exports.Queue = require(dir + 'Queue');
 exports.Worker = require(dir + 'Worker');
-
+exports.Job = require(dir + 'Job');
