@@ -1,10 +1,13 @@
 REPORTER = spec
-test:
-	@NODE_ENV=test ./node_modules/.bin/mocha -b --reporter $(REPORTER)
+test: npm-install
+	@NODE_ENV=test ./node_modules/.bin/mocha --reporter $(REPORTER)
 
 lib-cov:
 	rm -rf lib-cov
 	jscoverage lib lib-cov
+
+npm-install:
+	npm install
 
 test-cov:	lib-cov
 	rm -f coverage.html
