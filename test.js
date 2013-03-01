@@ -1,4 +1,5 @@
 var BatchThrasher = require('./index').BatchThrasher;
+var StatusServer = require('./index').StatusServer;
 
 var thrasher = new BatchThrasher({
   makeJobs : function(cb){
@@ -26,5 +27,5 @@ var thrasher = new BatchThrasher({
 });
 thrasher.start();
 
-
+var reporter = new StatusServer(thrasher).listen(8080);
 

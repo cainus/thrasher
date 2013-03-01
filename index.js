@@ -4,6 +4,7 @@ if (process.env.THRASHER_COVERAGE){
   dir = './lib-cov/';
 }
 
+exports.StatusServer = require(dir + 'StatusServer');
 exports.BatchThrasher = require(dir + 'BatchThrasher');
 exports.BatchScheduler = require(dir + 'BatchScheduler');
 exports.JobMaker = require(dir + 'JobMaker');
