@@ -1,5 +1,6 @@
 # ![Thrasher](https://raw.github.com/cainus/thrasher/master/thrasher.png)
 [![Build Status](https://travis-ci.org/cainus/thrasher.png?branch=master)](https://travis-ci.org/cainus/thrasher)
+[![Coverage Status](https://coveralls.io/repos/cainus/thrasher/badge.png?branch=master)](https://coveralls.io/r/cainus/thrasher)
 
 An in-process non-persistent job queue that fetches its own work.
 
