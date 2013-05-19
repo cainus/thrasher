@@ -35,6 +35,9 @@ var thrasher = new BatchThrasher({
   asynchronousBatches : true     // whether more jobs can be made before the last batch of jobs
                                  // has been processed.
 });
+
+// run it!
+thrasher.start();
 ```
 
 
