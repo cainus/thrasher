@@ -1,24 +1,31 @@
 {
-    "name": "thrasher",
-    "description" : "A simple single-process non-persistent work-queue that can get its own jobs",
-    "keywords" : ["work", "job", "queue"],
-    "version": "0.0.8",
-    "bugs": {
-     "url": "https://github.com/cainus/thrasher/issues"
-    },
-    "scripts" : {
-        "test" : "make test-coveralls"
-    },
-    "dependencies": {
-        "forever-monitor" : "1.1.0",
-        "cron" : "1.0.1",
-        "underscore" : "1.4.4"
-    },
-    "devDependencies" : {
-				"jscoverage" : "0.3.6",
-				"coveralls": "1.1.2",
-        "mocha" : "1.8.1",
-        "should" : "1.1.0"
-    },
-    "engine" : {"node" : ">=0.8.6"}
+  "name": "thrasher",
+  "description": "A simple single-process non-persistent work-queue that can get its own jobs",
+  "keywords": [
+    "work",
+    "job",
+    "queue"
+  ],
+  "version": "0.0.8",
+  "bugs": {
+    "url": "https://github.com/cainus/thrasher/issues"
+  },
+  "scripts": {
+    "test": "make test-coveralls"
+  },
+  "dependencies": {
+    "forever-monitor": "1.1.0",
+    "cron": "1.0.1",
+    "underscore": "1.4.4",
+    "log-driver": "~1.2.1"
+  },
+  "devDependencies": {
+    "jscoverage": "0.3.6",
+    "coveralls": "1.1.2",
+    "mocha": "1.8.1",
+    "should": "1.1.0"
+  },
+  "engine": {
+    "node": ">=0.8.6"
+  }
 }
